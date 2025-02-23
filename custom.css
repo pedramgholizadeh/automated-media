@@ -1,0 +1,21 @@
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    text-align: right;
+    direction: rtl;
+}
+
+.hidden {
+    display: none;
+}
+
+#progressBar {
+    appearance: none;
+    height: 10px;
+    background-color: #e5e7eb;
+    border-radius: 5px;
+}
+
+#progressBar::-webkit-progress-value {
+    background-color: #3b82f6;
+    border-radius: 5px;
+}
