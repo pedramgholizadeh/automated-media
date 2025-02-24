@@ -98,8 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Get video dimensions and calculate padding
             $videoWidth = $config['video_padding']['width'];
             $videoHeight = $config['video_padding']['height'];
-            $padding = $config['video_padding']['padding'];
-
+            // $padding = $config['video_padding']['padding'];
+            $padding = isset($_POST['paddingValue']) ? (int)$_POST['paddingValue'] : 50;
             // Get input video dimensions using instance method
             $ffprobe = $ffmpeg->getFFProbe();
             $inputVideoInfo = $ffprobe->streams($tempVideoPath)->videos()->first();

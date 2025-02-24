@@ -246,6 +246,7 @@ document.getElementById('videoForm').addEventListener('submit', async function (
     if (watermarkType === 'text') {
         formData.append('fontSize', document.getElementById('fontSize').value);
         formData.append('textOpacity', document.getElementById('textOpacity').value);
+        formData.append('paddingValue', document.getElementById('paddingValue').value);
         formData.append('watermarkText', convert(watermarkText));
     } else {
         formData.append('watermarkImage', watermarkImage);
@@ -297,11 +298,13 @@ document.getElementById('fontSize').addEventListener('input', function(e) {
     document.getElementById('fontSizeValue').textContent = `${e.target.value}px`;
 });
 
+
 // ذخیره و بازیابی تنظیمات
 function saveSettings() {
     const settings = {
         watermarkText: document.getElementById('watermarkText').value,
         textOpacity: document.getElementById('textOpacity').value,
+        paddingValue: document.getElementById('paddingValue').value,
         fontSize: document.getElementById('fontSize').value,
         watermarkType: document.querySelector('input[name="watermarkType"]:checked').value
     };
@@ -317,6 +320,7 @@ function loadSettings() {
         document.getElementById('watermarkText').value = settings.watermarkText || '';
         document.getElementById('textOpacity').value = settings.textOpacity || 100;
         document.getElementById('fontSize').value = settings.fontSize || 44;
+        document.getElementById('paddingValue').value = settings.fontSize || 30;
         document.querySelector(`input[name="watermarkType"][value="${settings.watermarkType}"]`).checked = true;
 
         // بروزرسانی نمایش مقادیر
